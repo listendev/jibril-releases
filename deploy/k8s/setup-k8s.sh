@@ -21,7 +21,8 @@ trap cleanup EXIT
 
 # Default values
 NAMESPACE="security"
-IMAGE="garnetlabs/jibril:v1.4"
+IMAGE="garnetlabs/jibril:v1.5"
+# IMAGE="garnetlabs/jibril:v0.0" # daily builds
 LOG_LEVEL="info"
 MEMORY_REQUEST="512Mi"
 MEMORY_LIMIT="1024Mi"

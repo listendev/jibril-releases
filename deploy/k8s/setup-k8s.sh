@@ -21,7 +21,7 @@ trap cleanup EXIT
 
 # Default values
 NAMESPACE="security"
-IMAGE="garnetlabs/jibril:v1.5"
+IMAGE="garnetlabs/jibril:v1.6"
 # IMAGE="garnetlabs/jibril:v0.0" # daily builds
 LOG_LEVEL="info"
 MEMORY_REQUEST="512Mi"
@@ -225,9 +225,9 @@ else
       - data
     plugin:
       - jibril:hold
+      - jibril:procfs
       # - jibril:jbconfig
       # - jibril:pause
-      - jibril:procfs
       - jibril:printers
       - jibril:net
       # - jibril:netpolicy:file=/etc/jibril/netpolicy.yaml

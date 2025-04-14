@@ -21,7 +21,7 @@ trap cleanup EXIT
 
 # Default values
 NAMESPACE="security"
-IMAGE="garnetlabs/jibril:v1.6"
+IMAGE="garnetlabs/jibril:v1.7"
 # IMAGE="garnetlabs/jibril:v0.0" # daily builds
 LOG_LEVEL="info"
 MEMORY_REQUEST="512Mi"
@@ -226,19 +226,19 @@ else
     plugin:
       - jibril:hold
       - jibril:procfs
+      - jibril:printers
       # - jibril:jbconfig
       # - jibril:pause
-      - jibril:printers
-      - jibril:net
-      # - jibril:netpolicy:file=/etc/jibril/netpolicy.yaml
       - jibril:detect
+      # - jibril:netpolicy:file=/etc/jibril/netpolicy.yaml
     printer:
       - jibril:printers:stdout:raw=true
     event:
-      # Flows.
-      - jibril:net:flow
+      # Network policy.
       # - jibril:netpolicy:dropip
       # - jibril:netpolicy:dropdomain
+      # Method: flows.
+      - jibril:detect:flow
       # Method: file access.
       - jibril:detect:file_example
       - jibril:detect:auth_logs_tamper
